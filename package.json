@@ -1,0 +1,65 @@
+{
+  "name": "@brickhouse-tech/yaml-include",
+  "version": "0.1.0",
+  "description": "Generic YAML/JSON preprocessor with includes, merging, and transformations",
+  "keywords": [
+    "yaml",
+    "json",
+    "include",
+    "merge",
+    "preprocessor",
+    "template",
+    "cloudformation",
+    "kubernetes",
+    "docker-compose"
+  ],
+  "homepage": "https://github.com/brickhouse-tech/yaml-include#readme",
+  "bugs": {
+    "url": "https://github.com/brickhouse-tech/yaml-include/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brickhouse-tech/yaml-include.git"
+  },
+  "license": "MIT",
+  "author": "Nick McCready <nemtcan@gmail.com>",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "yaml-include": "./bin/yaml-include.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "rm -rf dist && npm run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "sort-package-json",
+    "prepublishOnly": "npm run build:clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/lodash": "^4.17.15",
+    "@types/node": "^22.10.5",
+    "eslint": "^10.2.0",
+    "sort-package-json": "^2.10.1",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
