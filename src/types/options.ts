@@ -2,8 +2,6 @@
  * yaml-include Options Type Definitions
  */
 
-import type { TemplateDocument, TemplateValue } from './template.js';
-
 /**
  * Scope object for variable substitution
  * Uses prototype chain for efficient child scope creation
@@ -21,11 +19,4 @@ export interface ParsedLocation {
   path?: string;
   relative: boolean;
   raw?: string;
-}
-
-/**
- * Pseudo-parameters for template variable substitution
- */
-export interface AwsPseudoParameters {
-  [key: string]: string;
 }

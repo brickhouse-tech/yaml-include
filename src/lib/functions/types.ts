@@ -14,9 +14,6 @@ export interface RecurseContext {
   doEval?: boolean;
   doLog?: boolean;
   inject?: Record<string, string>;
-  refNowIgnores?: string[];
-  refNowIgnoreMissing?: boolean;
-  refNowReturnType?: 'arn' | 'name';
 }
 
 export interface FnIncludeContext extends Omit<RecurseContext, 'cft'> {
@@ -36,8 +33,6 @@ export interface FnIncludeArgs {
   doEnv?: boolean;
   doEval?: boolean;
   doLog?: boolean;
-  refNowIgnores?: string[];
-  refNowIgnoreMissing?: boolean;
 }
 
 export type RecurseFn = (ctx: RecurseContext) => Promise<any>;

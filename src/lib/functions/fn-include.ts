@@ -55,7 +55,7 @@ export function createFnInclude(recurse: RecurseFn) {
         ? path.join(path.dirname(base.path || ''), location.host || '', location.path || '')
         : [location.host, location.path].join('');
 
-      cft.inject = { CFN_INCLUDE_DIRNAME: path.dirname(absolute), ...cft.inject };
+      cft.inject = { YAML_INCLUDE_DIRNAME: path.dirname(absolute), ...cft.inject };
       handleInjectSetup();
 
       if (isGlob(cft, absolute)) {
@@ -106,8 +106,6 @@ export function createFnInclude(recurse: RecurseFn) {
               doEval: args.doEval,
               doLog: args.doLog,
               inject: args.inject,
-              refNowIgnores: args.refNowIgnores,
-              refNowIgnoreMissing: args.refNowIgnoreMissing,
             }).then((_temp) => {
               if (!_temp || !Object.keys(_temp as object).length) {
                 return _temp;
@@ -135,8 +133,6 @@ export function createFnInclude(recurse: RecurseFn) {
                     doEnv: args.doEnv,
                     doLog: args.doLog,
                     inject: args.inject,
-                    refNowIgnores: args.refNowIgnores,
-                    refNowIgnoreMissing: args.refNowIgnoreMissing,
                   });
             return getParser(args.parser)(temp, query as string) as TemplateValue;
           });
