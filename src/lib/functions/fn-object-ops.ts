@@ -72,6 +72,7 @@ export function createFnSortObject(recurse: RecurseFn) {
     const obj = cft as TemplateObject;
     const result = await recurse({ base, scope, cft: obj['Fn::SortObject'], rootTemplate, caller: 'Fn::SortObject', ...opts }) as { object?: unknown; options?: Record<string, unknown> };
     const { object, options: sortOpts, ...rest } = result;
-    return sortObject(object || rest, sortOpts);
+    const defaultOpts: Record<string, unknown> = {};
+    return sortObject((object || rest) as Record<string, unknown>, sortOpts || defaultOpts);
   };
 }

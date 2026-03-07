@@ -111,9 +111,9 @@ export function createFnIfEval(recurse: RecurseFn) {
     evalCond = `(${evalCond})`;
 
     evalCond = replaceEnv(evalCond, _.merge(_.cloneDeep(opts.inject), inject), opts.doEnv) as string;
-    truthy = replaceEnv(truthy, _.merge(_.cloneDeep(opts.inject), inject), opts.doEnv) as TemplateValue;
+    truthy = replaceEnv(truthy, _.merge(_.cloneDeep(opts.inject), inject), opts.doEnv) as Exclude<TemplateValue, undefined>;
     if (falsy) {
-      falsy = replaceEnv(falsy, _.merge(_.cloneDeep(opts.inject), inject), opts.doEnv) as TemplateValue;
+      falsy = replaceEnv(falsy, _.merge(_.cloneDeep(opts.inject), inject), opts.doEnv) as Exclude<TemplateValue, undefined>;
     }
 
     // eslint-disable-next-line no-eval
